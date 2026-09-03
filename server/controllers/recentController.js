@@ -48,7 +48,7 @@ const getRecents = async (req, res) => {
       .populate("songId")
       .sort({ createdAt: -1 })
       .limit(10);
-
+console.log(recents)
     res.json(recents);
 
   } catch (error) {

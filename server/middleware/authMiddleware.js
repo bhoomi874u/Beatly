@@ -1,8 +1,7 @@
 const jwt = require("jsonwebtoken");
 
 const protect = (req, res, next) => {
- console.log("Authorization Header")
- console.log(req.headers.authorization)
+
   let token;
 
   if (
@@ -11,39 +10,36 @@ const protect = (req, res, next) => {
   ) {
 
     token = req.headers.authorization.split(" ")[1];
- console.log("received Token")
- console.log(token);
- console.log("JWT_SECRET")
- console.log(process.env.JWT_SECRET)
+
     try {
 
       const decoded = jwt.verify(
         token,
         process.env.JWT_SECRET
       );
-      console.log("decoded Token")
-      console.log(decoded);
 
-      req.user = decoded.userId;
-console.log("Middleware Passed", req.user)
+      req.user = decoded._id;
+
+      req.role = decoded.role;
+
       next();
 
     } catch (error) {
 
       return res.status(401).json({
-        message: "Not authorized, invalid token",
+        message: "Invalid Token",
       });
 
     }
 
   } else {
-   console.log("No Authorization Header Found");
 
     return res.status(401).json({
-      message: "Not authorized, no token",
+      message: "No Token",
     });
 
   }
+
 };
 
 module.exports = protect;
