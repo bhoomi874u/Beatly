@@ -13,7 +13,7 @@ const createPlaylist = async () => {
 
   try {
  
-    await axios.post( "http://localhost:5000/api/playlist",{ name: playlistName})
+    await axios.post( "https://beatly-efuo.onrender.com/api/playlist",{ name: playlistName})
      if(!playlistName.trim()){
       alert("Please enter playlist name")
       return ;
@@ -36,7 +36,7 @@ const createPlaylist = async () => {
 
       const res =
         await axios.get(
-          "http://localhost:5000/api/playlist"
+          "https://beatly-efuo.onrender.com/api/playlist"
         );
 
       setPlaylists(
@@ -50,7 +50,7 @@ const removeSong = async (playlistId, songId) => {
 
     await axios.delete(
 
-      `http://localhost:5000/api/playlist/${playlistId}/song`,
+      `https://beatly-efuo.onrender.com/api/playlist/${playlistId}/song`,
 
       {
 
@@ -75,7 +75,7 @@ const removeSong = async (playlistId, songId) => {
 };
 const deletePlaylist =async (id)=>{
     try{
-        const res=await axios.delete(`http://localhost:5000/api/playlist/${id}`)
+        const res=await axios.delete(`https://beatly-efuo.onrender.com/api/playlist/${id}`)
         fetchPlaylist();
     }
     catch(error){

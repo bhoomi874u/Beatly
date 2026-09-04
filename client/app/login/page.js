@@ -44,7 +44,7 @@ export default function LoginPage() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://beatly-efuo.onrender.com/api/auth/login",
         {
           email: email.trim(),
           password: password,
