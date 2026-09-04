@@ -22,7 +22,7 @@ console.log(favorites);
 
       const res =
         await axios.get(
-          "http://localhost:5000/api/favorite"
+          "https://beatly-efuo.onrender.com/api/favorite"
         );
 
       setFavorites(
@@ -32,7 +32,7 @@ console.log(favorites);
     };
     const removeFavorite =async (id) =>{
       try{
-        await axios.delete(`http://localhost:5000/api/favorite/${id}`)
+        await axios.delete(`https://beatly-efuo.onrender.com/api/favorite/${id}`)
         fetchFavorites();
       }
       catch(error){

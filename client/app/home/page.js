@@ -47,7 +47,7 @@ const [youtubePlayer,setYoutubePlayer]=useState(null);
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/songs"
+        "https://beatly-efuo.onrender.com/api/songs"
       );
 
       setSongs(res.data);
@@ -60,7 +60,7 @@ const [youtubePlayer,setYoutubePlayer]=useState(null);
   const playSong=async (song)=>{
     setCurrentSong(song)
     try{
-    await axios.post( "http://localhost:5000/api/recent",
+    await axios.post( "https://beatly-efuo.onrender.com/api/recent",
       {songId:song._id,}
     );
     console.log("Recent Saved")
@@ -72,7 +72,7 @@ const [youtubePlayer,setYoutubePlayer]=useState(null);
  const addToFavorite = async (songId) => {
   try {
     const res = await axios.post(
-      "http://localhost:5000/api/favorite",
+      "https://beatly-efuo.onrender.com/api/favorite",
       { songId }
     );
 
@@ -127,7 +127,7 @@ const [youtubePlayer,setYoutubePlayer]=useState(null);
   try {
 
     const res = await axios.get(
-      `http://localhost:5000/api/youtube?q=${value}`
+      `https://beatly-efuo.onrender.com/api/youtube?q=${value}`
     );
 
     console.log("YouTube:", res.data);
@@ -146,7 +146,7 @@ const [youtubePlayer,setYoutubePlayer]=useState(null);
   const addToPlaylist=async(songId)=>{
     try{
       const playlistId="6a400a4dfd916e3a8d5cc4fc"
-      const res=await axios.post(`http://localhost:5000/api/playlist/${playlistId}/song`,{songId})
+      const res=await axios.post(`https://beatly-efuo.onrender.com/api/playlist/${playlistId}/song`,{songId})
       console.log(res.data)
       alert ("song added  to playlist")
     }
@@ -160,7 +160,7 @@ const [youtubePlayer,setYoutubePlayer]=useState(null);
    setSelectedSong(song);
 
    const res = await axios.get(
-      "http://localhost:5000/api/playlist"
+      "https://beatly-efuo.onrender.com/api/playlist"
    );
 
    setPlaylists(res.data);

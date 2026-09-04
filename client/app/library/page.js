@@ -25,10 +25,10 @@ const router=useRouter();
  const  fetchLibrary=async(req,res)=>{
 try{
   setLoading(true)
-   const favoriteRes=await axios.get("http://localhost:5000/api/favorite")
-const recentRes=await axios.get( "http://localhost:5000/api/recent")
+   const favoriteRes=await axios.get("https://beatly-efuo.onrender.com/api/favorite")
+const recentRes=await axios.get( "https://beatly-efuo.onrender.com/api/recent")
  const playlistRes = await axios.get(
-      "http://localhost:5000/api/playlist"
+      "https://beatly-efuo.onrender.com/api/playlist"
     );
 setFavorites(favoriteRes.data);
 setRecent(recentRes.data);
@@ -47,7 +47,7 @@ finally{
  const removeSong = async (playlistId, songId) => {
 try{
   await axios.delete(
-    `http://localhost:5000/api/playlist/${playlistId}/song`,
+    `https://beatly-efuo.onrender.com/api/playlist/${playlistId}/song`,
     {
       data: { songId }
     }
@@ -63,12 +63,12 @@ alert("Song Removed");
  }
 }
 const favoriteSong=async (songId)=>{
-await axios.delete( `http://localhost:5000/api/favorite/${songId}/song`,)
+await axios.delete( `https://beatly-efuo.onrender.com/api/favorite/${songId}/song`,)
 }
 
 const deleteFavorite=async (songId)=>{
   try{
-  await axios.delete(`http://localhost:5000/api/favorite/${songId}`)
+  await axios.delete(`https://beatly-efuo.onrender.com/api/favorite/${songId}`)
   fetchLibrary();
   }
   catch(error){
@@ -77,11 +77,11 @@ const deleteFavorite=async (songId)=>{
 }
 
 const deleteRecent=async (recentId)=>{
-  await axios.delete(`http://localhost:5000/api/recent/${recentId}`)
+  await axios.delete(`https://beatly-efuo.onrender.com/api/recent/${recentId}`)
   fetchLibrary();
 }
 // setLoading(true)
-// await axios.get("http://localhost:5000/api/loading")
+// await axios.get("https://beatly-efuo.onrender.com/api/loading")
 // setLoading(false)
 if (loading){
   return <div className="min-h-screen flex items-center justify-center text-white text-3xl">Loading...</div>
