@@ -21,7 +21,7 @@ const router =useRouter();
       const token = localStorage.getItem("adminToken");
 
       const res = await axios.get(
-        "http://localhost:5000/api/admin/users",
+        "https://beatly-efuo.onrender.com/api/admin/users",
         {
           headers: {
             Authorization: `Bearer ${token}`,

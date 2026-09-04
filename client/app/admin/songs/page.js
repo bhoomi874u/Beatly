@@ -67,7 +67,7 @@ const handleImageChange=(e)=>{
     console.log("Audio:", audio);
 
     const response = await axios.post(
-      "http://localhost:5000/api/admin/add",
+      "https://beatly-efuo.onrender.com/api/admin/add",
       formData,
       // {
       //   headers: {
